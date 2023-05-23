@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/todolist")
+@RequestMapping(path = "/todolist")
 public class ToDoListManager {
     @Autowired
     private ToDoListDao dao;
@@ -28,7 +28,7 @@ public class ToDoListManager {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public HttpStatus create(@RequestBody ToDoListDto dto){
         this.dao.create(dto);
         return HttpStatus.CREATED;
