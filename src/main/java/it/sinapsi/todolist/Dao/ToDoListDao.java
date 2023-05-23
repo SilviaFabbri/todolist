@@ -34,12 +34,4 @@ public class ToDoListDao {
             throw new RuntimeException(e);
         }
     }
-    public void delete(Long id){
-        Optional<ToDoList> todoDB = repository.findById(id);
-        try{
-            repository.delete(todoDB.get());
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
-    }
 }

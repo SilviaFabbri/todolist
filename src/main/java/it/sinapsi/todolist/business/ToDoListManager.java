@@ -15,6 +15,7 @@ public class ToDoListManager {
     private ToDoListDao dao;
     @Autowired
     private ToDoListRepository repository;
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("")
     public @ResponseBody
     List<ToDoList> getAll(ToDoCriterio criterio) {
@@ -28,7 +29,7 @@ public class ToDoListManager {
         }
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public HttpStatus create(@RequestBody ToDoListDto dto){
         this.dao.create(dto);
         return HttpStatus.CREATED;
