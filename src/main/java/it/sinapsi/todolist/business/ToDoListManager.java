@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.GET, RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.POST})
 @RequestMapping(path = "/todolist")
 public class ToDoListManager {
     @Autowired
     private ToDoListDao dao;
     @Autowired
     private ToDoListRepository repository;
-    @CrossOrigin(origins = "http://localhost:3000")
+
     @GetMapping("")
     public @ResponseBody
     List<ToDoList> getAll(ToDoCriterio criterio) {
